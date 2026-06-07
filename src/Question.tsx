@@ -1,8 +1,7 @@
 import React from "react";
 
-const totalQuestions : number = 10;
 
-export default function Question({number  , question , opt1 , opt2 , opt3 , opt4 , answer}) : React.ReactElement
+export default function Question({number , totalQuestions  , question , opt1 , opt2 , opt3 , opt4 , correctAnswer , answer}) : React.ReactElement
 {
     return (
         <div className="question-container">

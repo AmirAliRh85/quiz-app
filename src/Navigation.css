@@ -1,0 +1,23 @@
+.next-button-container {
+    position: absolute;
+    bottom: 20px;
+    left: calc(50vw - 60px);
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.next-button-container > button {
+    border: none;
+    border-radius: 25px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--bg-second-color);
+    font-size: 28px;
+}
+
+.next-button-container > button:hover {
+    transition: 0.2s ease background-color;
+    background-color: var(--bg-hover-second-color);
+}
