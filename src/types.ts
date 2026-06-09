@@ -9,3 +9,10 @@ export interface UserAnswer {
     id : number;
     answer? : number;
 };
+
+export interface Result {
+    correctAnswers : number,
+    wrongAnswers : number,
+    noAnswers : number,
+    percentage : number,
+};

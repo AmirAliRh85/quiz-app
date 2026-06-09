@@ -1,0 +1,33 @@
+.reportcard-container {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 40px;
+    border-radius: 10px;
+    background-color: var(--bg-second-color);
+    color: white;
+    gap: 20px;
+    padding: 20px;
+    min-width: 24vw;
+    height: 60vh;
+}
+
+.reportcard-container * {
+    display: flex;
+    justify-content: center;
+    /* background-color: var(--bg-hover-second-color); */
+    /* padding: 4px;
+    border-radius: 8px; */
+}
+
+.reportcard-container > hr {
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.reportcard-container > div {
+    margin-bottom: 20px;
+}

@@ -1,5 +1,6 @@
 import Question from "./Question";
 import Navigation from "./Navigation";
+import ReportCard from "./ReportCard";
 import * as itface from "./types";
 import React from "react"
 
@@ -81,11 +82,31 @@ export default function App()
         // console.log(updatedUserAnswers);
     }
 
+
     const [isSubmited , setIsSubmited] = React.useState(false);
+    const [report , setReport] = React.useState({
+        correctAnswers : 0 ,
+        wrongAnswers : 0,
+        noAnswers : 0,
+        percentage : 0,})
 
     function _setIsSubmited()
     {
         setIsSubmited(true);
+
+        const _report : itface.Result = {correctAnswers : 0 , wrongAnswers : 0 , noAnswers : 0 , percentage : 0.00};
+        for (let i = 0 ; i < totalQuestion ; i++)
+        {
+            if (userAnswer[i].answer === 0)
+                _report.noAnswers += 1;
+            else if (userAnswer[i].answer !== question_sample[i].answer)
+                _report.wrongAnswers += 1;
+            else
+                _report.correctAnswers += 1;
+        }
+        _report.percentage = _report.correctAnswers / totalQuestion * 100;
+        _report.percentage = Math.ceil(_report.percentage * 100) / 100;
+        setReport(_report);
     }
 
     if (!isSubmited)
@@ -108,7 +129,12 @@ export default function App()
     else
     {
         return (
-            <div>Hello World</div>
+            <ReportCard
+            correctAnswers={report.correctAnswers}
+            wrongAnswers={report.wrongAnswers}
+            noAnswers={report.noAnswers}
+            percentage={report.percentage}
+            ></ReportCard>
         );
     }
 }
